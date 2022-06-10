@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>StoreAppSp</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+       <h1>Store App Spring MVC - Cutomers</h1>
+       <div th:if="${customers == null or customers.empty}">
+            <h3>Lista de clientes vacia</h3>
+        </div>
+        <div th:if="${customers != null and !customers.empty}">
+            <h3>Lista de clientes</h3>
+            <table border="2" >
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Phone</th>
+                <th>Mobile</th>
+                <th>Email</th>
+                <th>Notes</th>
+            </tr>
+            <tr th:each="customer : ${customers}">
+                <td th:text="${customer.customerID}">ID</th>
+                <td th:text="${customer.customerName}">Name</th>
+                <td th:text="${customer.address}">ID</th>
+                <td th:text="${customer.city}">Name</th>
+                <td th:text="${customer.state}">Mobile</th>
+                <td th:text="${customer.phone}">Email</th>
+                <td th:text="${customer.mobileno}">Mobile</th>
+                <td th:text="${customer.email}">Email</th>
+                <td th:text="${customer.notes}">Email</th>    
+            </tr>
+        </table>
+        </div>
+    </body>
+</html>
