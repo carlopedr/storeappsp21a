@@ -44,6 +44,11 @@ public class CustomerController {
         return "editcustomer";
     }
     
+    @GetMapping("/removecustomer")
+    public String removeCustomer (Customer customer){
+        customerservice.deleteCustomer(customer);
+        return "redirect:/customer";
+    }
     
     
     
