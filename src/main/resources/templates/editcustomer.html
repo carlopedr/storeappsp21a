@@ -8,53 +8,84 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     </head>
     <body>
-        <div>Customer Edit</div>
-        <div>Edit Customer Form</div>
-        <form class="row g-3" th:action="@{/savecustomer}" method="post" th:object="${customer}">
-            <div class="col-md-6" th:if="${customer.customerID != null}">
-                <label for="customerID" class="form-label">[[#{customer.id}]]</label>
-                <input type="text" class="form-control" id="customerID" th:field="*{customerID}" disabled=""/>
-            </div>
-            <div class="col-md-6" th:if="${customer.customerID == null}">
-                <label for="customerID" class="form-label">[[#{customer.id}]]</label>
-                <input type="text" class="form-control" id="customerID" th:field="*{customerID}"/>
-            </div>
-            <div class="col-md-6">
-                <label for="customerName" class="form-label">[[#{customer.name}]]</label>
-                <input type="text" class="form-control" id="customerName" th:field="*{customerName}"/>
-            </div>
-            <div class="col-12">
-                <label for="address" class="form-label">[[#{customer.address}]]</label>
-                <input type="text" class="form-control" id="address" placeholder="1234 Main St" th:field="*{address}"/>
-            </div>
-            <div class="col-md-6">
-                <label for="city" class="form-label">[[#{customer.city}]]</label>
-                <input type="text" class="form-control" id="city" th:field="*{city}"/>
-            </div>
-            <div class="col-md-6">
-                <label for="state" class="form-label">[[#{customer.state}]]</label>
-                <input type="text" class="form-control" id="state" th:field="*{state}"/>
-            </div>
-            <div class="col-md-12">
-                <label for="emai" class="form-label">[[#{customer.email}]]</label>
-                <input type="email" class="form-control" id="email" th:field="*{email}"/>
-            </div>
-            <div class="col-md-6">
-                <label for="phone" class="form-label">[[#{customer.phone}]]</label>
-                <input type="tel" class="form-control" id="phone" th:field="*{phone}"/>
-            </div>
-            <div class="col-md-6">
-                <label for="mobileno" class="form-label">[[#{customer.mobile}]]</label>
-                <input type="tel" class="form-control" id="mobileno" th:field="*{mobileno}"/>
-            </div>
-            <div class="col-md-12">
-                <label for="notes" class="form-label">[[#{customer.notes}]]</label>
-                <input type="text" class="form-control" id="notes" th:field="*{notes}"/>
-            </div>
-            <div class="col-12">
-                <button type="submit" class="btn btn-primary" name="save" value="save">[[#{customer.save}]]</button>
-            </div>
-        </form>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg bg-light">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">StoreApp</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" th:href="@{/customer}">Customers</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Products</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled">Disabled</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="container">
+           <h1>Customer Edit</h1>
+        </div>
+        <div class="container">
+            <form class="row g-3" th:action="@{/savecustomer}" method="post" th:object="${customer}">
+
+                <div class="col-md-6" th:if="${customer.customerID != null}">
+                    <label for="customerID" class="form-label">ID Customer</label>
+                    <input type="text" class="form-control" id="customerID" th:field="*{customerID}" readonly/>
+                </div>
+                <div class="col-md-6" th:if="${customer.customerID == null}">
+                    <label for="customerID" class="form-label">ID Customer</label>
+                    <input type="text" class="form-control" id="customerID" th:field="*{customerID}"/>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="customerName" class="form-label">Customer Full Name</label>
+                    <input type="text" class="form-control" id="customerName" th:field="*{customerName}"/>
+                </div>
+                <div class="col-12">
+                    <label for="address" class="form-label">Address</label>
+                    <input type="text" class="form-control" id="address" placeholder="1234 Main St" th:field="*{address}"/>
+                </div>
+                <div class="col-md-6">
+                    <label for="city" class="form-label">City</label>
+                    <input type="text" class="form-control" id="city" th:field="*{city}"/>
+                </div>
+                <div class="col-md-6">
+                    <label for="state" class="form-label">State</label>
+                    <input type="text" class="form-control" id="state" th:field="*{state}"/>
+                </div>
+                <div class="col-md-12">
+                    <label for="emai" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" th:field="*{email}"/>
+                </div>
+                <div class="col-md-6">
+                    <label for="phone" class="form-label">Phone</label>
+                    <input type="tel" class="form-control" id="phone" th:field="*{phone}"/>
+                </div>
+                <div class="col-md-6">
+                    <label for="mobileno" class="form-label">Mobile No.</label>
+                    <input type="tel" class="form-control" id="mobileno" th:field="*{mobileno}"/>
+                </div>
+                <div class="col-md-12">
+                    <label for="notes" class="form-label">Notes</label>
+                    <input type="text" class="form-control" id="notes" th:field="*{notes}"/>
+                </div>
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary" name="save" value="save">Save</button>
+                </div>
+            </form>
+        </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     </body>
 </html>

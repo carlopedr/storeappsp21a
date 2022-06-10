@@ -16,7 +16,7 @@ public class LayoutController {
     @Autowired
     CustomerService customerservice;
     
-    @GetMapping("/customer")
+    @GetMapping("/customer2")
     public String listCustomer(Model model){
         var customers=customerservice.findAllCustomer();
         model.addAttribute("customers", customers);

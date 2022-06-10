@@ -27,7 +27,8 @@ public class CustomerServiceImp implements CustomerService {
 
     @Override
     public Customer findCustomerbyId(Customer customer) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return customerRepository.findById(customer.getCustomerID()).orElse(null);
+
     }
 
     @Override
@@ -37,17 +38,19 @@ public class CustomerServiceImp implements CustomerService {
 
     @Override
     public void insertCustomer(Customer customer) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        customerRepository.save(customer);
     }
 
     @Override
     public void deleteCustomer(Customer customer) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        customerRepository.delete(customer);
+
     }
 
     @Override
     public void updateCustomer(Customer customer) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        customerRepository.save(customer);
+    
     }
     
 }
